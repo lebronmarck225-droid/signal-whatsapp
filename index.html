@@ -1,0 +1,121 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101820">
+  <title>Signal WhatsApp</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 24px 16px;
+      font-family: Arial, sans-serif;
+      background: #101820;
+      color: white;
+    }
+    main {
+      max-width: 500px;
+      margin: auto;
+      padding: 24px;
+      background: #1b2733;
+      border-radius: 18px;
+    }
+    h1 { color: #55df91; text-align: center; }
+    p { color: #d1d9e0; line-height: 1.5; }
+    label { display: block; margin-top: 18px; }
+    input, select, textarea {
+      width: 100%;
+      margin-top: 8px;
+      padding: 13px;
+      border-radius: 9px;
+      border: 1px solid #536272;
+      background: #101820;
+      color: white;
+      font-size: 16px;
+    }
+    button {
+      width: 100%;
+      margin-top: 20px;
+      padding: 14px;
+      border: 0;
+      border-radius: 9px;
+      background: #25d366;
+      color: #102018;
+      font-size: 16px;
+      font-weight: bold;
+    }
+    .notice { font-size: 13px; }
+  </style>
+</head>
+<body>
+<main>
+  <h1>🛡️ Signal WhatsApp</h1>
+  <p>Prépare un signalement concernant un numéro suspect.</p>
+
+  <form id="reportForm">
+    <label for="phone">Numéro WhatsApp concerné</label>
+    <input id="phone" type="tel" placeholder="+225..." required>
+
+    <label for="reason">Motif du signalement</label>
+    <select id="reason" required>
+      <option value="">Choisir un motif</option>
+      <option>Spam</option>
+      <option>Arnaque présumée</option>
+      <option>Menaces ou harcèlement</option>
+      <option>Autre</option>
+    </select>
+
+    <label for="details">Détails (sans informations privées)</label>
+    <textarea id="details" rows="4" maxlength="1000"
+      placeholder="Explique brièvement ce qui s'est passé..."></textarea>
+
+    <button type="submit">Préparer mon signalement</button>
+  </form>
+
+  <p id="result" role="status"></p>
+  <p class="notice">
+    Ce site ne transmet pas automatiquement de signalement à WhatsApp.
+    Une accusation n'est pas une preuve. Vérifie les faits avant d'agir.
+    N'inscris aucun mot de passe ni code de vérification.
+  </p>
+  <p><a style="color:#55df91"
+    href="https://www.whatsapp.com/contact/" target="_blank"
+    rel="noopener">Contacter WhatsApp</a></p>
+</main>
+
+<script>
+document.getElementById("reportForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+  const phone = document.getElementById("phone").value.trim();
+  const reason = document.getElementById("reason").value;
+  const details = document.getElementById("details").value.trim();
+
+  const message =
+    "Objet : Signalement d'un numéro WhatsApp\n\n" +
+    "Numéro concerné : " + phone + "\n" +
+    "Motif déclaré : " + reason + "\n" +
+    "Détails : " + (details || "Non précisés") + "\n\n" +
+    "Merci de vérifier les faits.";
+
+  const result = document.getElementById("result");
+  result.textContent = message;
+
+  const copyButton = document.createElement("button");
+  copyButton.type = "button";
+  copyButton.textContent = "Copier le texte";
+  copyButton.onclick = async function() {
+    try {
+      await navigator.clipboard.writeText(message);
+      result.textContent = "Texte copié ! Tu peux le transmettre à l'assistance.";
+    } catch {
+      result.textContent = message + "\nSélectionne et copie ce texte manuellement.";
+    }
+  };
+  result.appendChild(document.createElement("br"));
+  result.appendChild(copyButton);
+});
+</script>
+</body>
+</html>
