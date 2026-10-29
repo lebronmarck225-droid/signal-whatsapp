@@ -47,6 +47,50 @@
       font-weight: bold;
     }
     .notice { font-size: 13px; }
+    /* Photo de profil */
+main > img {
+  width: 130px;
+  height: 130px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid #25d366;
+  box-shadow: 0 0 20px #25d366;
+  display: block;
+  margin: 0 auto 25px;
+  animation: glow 3s ease-in-out infinite;
+}
+
+/* Animation lumineuse */
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 10px #25d366;
+  }
+  50% {
+    box-shadow: 0 0 30px #25d366;
+  }
+}
+
+/* Titre */
+h1 {
+  text-align: center;
+  color: #25d366;
+  text-shadow: 0 0 8px #25d36655;
+}
+
+/* Amélioration mobile */
+@media (max-width: 600px) {
+  main {
+    width: 100%;
+  }
+
+  h1 {
+    font-size: clamp(22px, 6vw, 32px);
+  }
+
+  input, select, textarea, button {
+    max-width: 100%;
+  }
+  }
   </style>
 </head>
 <body>
