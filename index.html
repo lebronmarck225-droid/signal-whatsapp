@@ -265,6 +265,78 @@ a:hover {
     animation: none;
   }
 }
+    /* FOND ANIMÉ NOIR ET OR */
+body {
+  background:
+    radial-gradient(circle at 15% 20%, #59420055, transparent 35%),
+    radial-gradient(circle at 85% 75%, #b8860b33, transparent 40%),
+    #050505;
+  background-size: 200% 200%;
+  animation: fondAnime 12s ease infinite;
+}
+
+@keyframes fondAnime {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* CARTE LUMINEUSE */
+main {
+  border: 2px solid #d4af37;
+  box-shadow: 0 0 25px #d4af3744;
+  animation: entree 1s ease-out;
+}
+
+@keyframes entree {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* BANNIÈRE DORÉE */
+main::before {
+  content: "✦ SIGNAL WHATSAPP ✦";
+  display: block;
+  text-align: center;
+  background: linear-gradient(90deg, #6b4e00, #ffd700, #6b4e00);
+  color: #111;
+  font-size: 18px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  padding: 18px 8px;
+  border-radius: 14px;
+  margin-bottom: 25px;
+  box-shadow: 0 0 20px #ffd70066;
+}
+
+/* BOUTONS NÉON */
+button {
+  box-shadow: 0 0 15px #ff202088;
+  animation: boutonGlow 3s ease-in-out infinite;
+}
+
+@keyframes boutonGlow {
+  0%, 100% { box-shadow: 0 0 8px #ff202055; }
+  50% { box-shadow: 0 0 25px #ff2020aa; }
+}
+
+/* ÉTOILES DORÉES */
+h1::before, h1::after {
+  content: " ✦ ";
+  color: #ffd700;
+}
+
+/* ACCESSIBILITÉ */
+@media (prefers-reduced-motion: reduce) {
+  body, main, button {
+    animation: none !important;
+  }
+}
   </style>
 </head>
 <body>
