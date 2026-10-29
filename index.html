@@ -178,6 +178,93 @@ button:active {
     transition: none !important;
   }
 }
+    /* 🔥 BLACK & GOLD PREMIUM */
+
+body {
+  background: #050505;
+  color: #f5e6b3;
+  min-height: 100vh;
+}
+
+main {
+  background: linear-gradient(145deg, #141414, #080808);
+  border: 1px solid #b89745;
+  border-radius: 22px;
+  padding: 25px 18px;
+  box-shadow: 0 0 25px rgba(212,175,55,0.2);
+}
+
+/* PHOTO DE PROFIL */
+main > img {
+  width: 135px;
+  height: 135px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid #ffd700 !important;
+  box-shadow: 0 0 25px #ffd70099 !important;
+  animation: goldGlow 3s infinite alternate;
+}
+
+@keyframes goldGlow {
+  from { box-shadow: 0 0 10px #ffd700; }
+  to { box-shadow: 0 0 35px #ffd700; }
+}
+
+/* TITRE */
+h1 {
+  color: #ffd700 !important;
+  text-align: center;
+  text-shadow: 0 0 15px #ffd70077;
+}
+
+/* CHAMPS */
+input, select, textarea {
+  background: #0b0b0b !important;
+  color: #fff !important;
+  border: 1px solid #b89745 !important;
+  border-radius: 12px !important;
+  padding: 15px !important;
+  width: 100%;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: #ffd700 !important;
+  outline: none;
+  box-shadow: 0 0 12px #ffd70055;
+}
+
+/* BOUTON PRINCIPAL */
+button {
+  background: linear-gradient(135deg, #ff2020, #a90000) !important;
+  color: white !important;
+  border: none !important;
+  border-radius: 12px !important;
+  padding: 16px !important;
+  font-weight: bold;
+  box-shadow: 0 0 18px #ff000066;
+  transition: transform 0.2s;
+}
+
+button:active {
+  transform: scale(0.96);
+}
+
+/* LIENS */
+a {
+  color: #25d366;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+a:hover {
+  text-shadow: 0 0 10px #25d366;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  main > img {
+    animation: none;
+  }
+}
   </style>
 </head>
 <body>
